@@ -12,8 +12,8 @@ from threading import Thread
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow frontend requests
 
-UPLOAD_FOLDER = "uploads"
-DOWNLOAD_FOLDER = "downloads"
+UPLOAD_FOLDER = "/tmp/uploads"
+DOWNLOAD_FOLDER = "/tmp/downloads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 

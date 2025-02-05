@@ -3,14 +3,14 @@ from flask_cors import CORS
 import yt_dlp
 import os
 import subprocess
-import time
 from werkzeug.utils import secure_filename
 from pypdf import PdfReader
 from docx import Document
-from threading import Thread
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS to allow frontend requests
+
+# ✅ Allow CORS for both localhost (development) & Vercel frontend (production)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://convertly-lovat.vercel.app"]}}) # Enable CORS to allow frontend requests
 
 UPLOAD_FOLDER = "/tmp/uploads"
 DOWNLOAD_FOLDER = "/tmp/downloads"
